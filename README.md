@@ -4,11 +4,30 @@ Join the Argo maintainers for an interactive session designed to jumpstart your 
 
 ## Prerequisite Tools
 
-- Kubernetes environment (kind, minikube, k3d, etc.)
-- tilt (`brew install tilt`)
-- Kustomize
-- kubectl
-- Go installed (version as specified in `go.mod`)
+- **go** - Go programming language (version specified in `go.mod`)
+- **node** - Node.js runtime
+- **yarn** - JavaScript package manager
+- **typescript** - TypeScript compiler
+- **kubectl** - Kubernetes CLI
+- **tilt** - Tilt development tool
+- **kustomize** - Kubernetes manifest customization
+- **kubernetes cluster** - Managed by kind, k3d, minikube, docker-desktop, etc.
+- **protobuf** - Protoc binary for generating code from protobufs definitions
+
+If you're on macOS or Linux with [Homebrew](https://brew.sh/) installed, you can install most dependencies in a single command:
+
+```bash
+brew install go node yarn typescript kubectl tilt kustomize
+```
+
+And then run the following make commands to install remaining dependencies
+
+```bash
+make install-test-tools-local
+```
+```bash
+make install-codegen-tools-local
+```
 
 ## Developing Locally
 
@@ -19,7 +38,14 @@ git clone https://github.com/argoproj/argo-cd.git
 cd argo-cd
 ```
 
-### Building the Code
+### Build, Deploy, and Test with Tilt
+```bash
+tilt up
+```
+
+### Make Commands (optional)
+
+#### Building the Code
 
 ```bash
 # Build all components with Docker
@@ -35,7 +61,7 @@ make cli
 make cli-local
 ```
 
-### Running Code Generation
+#### Running Code Generation
 
 ```bash
 # Run all code generation with Docker
@@ -48,7 +74,7 @@ make codegen-local
 make codegen-local-fast
 ```
 
-### Running Linting Tools
+#### Running Linting Tools
 
 ```bash
 # Run linter with Docker
