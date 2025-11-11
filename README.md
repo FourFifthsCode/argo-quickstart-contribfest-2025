@@ -55,6 +55,21 @@ cd argo-cd
 tilt up
 ```
 
+To log in to Argo CD:
+UI - http://localhost:4000
+
+```bash
+# Get the initial admin password
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+
+# Log in via CLI (after running 'make cli-local')
+./dist/argocd login localhost:8080 --insecure --username admin
+
+# Or use environment variables
+export ARGOCD_SERVER=127.0.0.1:8080
+export ARGOCD_OPTS="--plaintext --insecure"
+```
+
 ### Make Commands (optional)
 
 #### Building the Code
