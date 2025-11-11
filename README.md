@@ -172,3 +172,6 @@ Run specific e2e tests:
 go test ./test/e2e -run TestApplicationCreation -timeout 90m
 ```
 
+## Additional Links
+* [ArgoCD Developer Guide](https://argo-cd.readthedocs.io/en/latest/developer-guide/)
+* [Slides](https://docs.google.com/presentation/d/1UPNAZyd_D1RQCgiWcNHfV2a8rpvGji9jEuuQSiaiSds)
