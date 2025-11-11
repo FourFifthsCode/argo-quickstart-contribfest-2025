@@ -13,12 +13,23 @@ Join the Argo maintainers for an interactive session designed to jumpstart your 
 - **tilt** - Tilt development tool
 - **kustomize** - Kubernetes manifest customization
 - **kubernetes cluster** - Managed by kind, k3d, minikube, docker-desktop, etc.
+- **ctlptl** - Helps create popular k8s clusters with preconfigured local image registries
 - **protobuf** - Protoc binary for generating code from protobufs definitions
 
 If you're on macOS or Linux with [Homebrew](https://brew.sh/) installed, you can install most dependencies in a single command:
 
 ```bash
-brew install go node yarn typescript kubectl tilt kustomize
+brew install go node yarn typescript kubectl tilt ctlptl kustomize
+```
+
+### Create k8s cluster with local registry 
+kind:
+```bash
+ctlptl create cluster kind --registry=ctlptl-registry
+```
+k3d:
+```bash
+ctlptl create cluster k3d --registry=ctlptl-registry
 ```
 
 And then run the following make commands to install remaining dependencies

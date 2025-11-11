@@ -107,7 +107,17 @@ Tilt orchestrates your development environment.
 tilt version
 ```
 
-### 6. Kustomize
+### 6. ctlptl
+ctlptl (pronounced "cattle patrol") is a CLI for declaratively setting up local Kubernetes clusters.
+
+**Installation:** See the [Github Readme](https://github.com/tilt-dev/ctlptl?tab=readme-ov-file#how-do-i-install-it) for your platform.
+
+**Verify installation:**
+```bash
+ctlptl version
+```
+
+### 7. Kustomize
 
 Used for customizing Kubernetes manifests.
 
@@ -118,7 +128,7 @@ Used for customizing Kubernetes manifests.
 kustomize version
 ```
 
-### 7. Kubernetes Cluster
+### 8. Kubernetes Cluster
 
 You need a local Kubernetes cluster. Choose one of the following:
 
@@ -128,7 +138,7 @@ You need a local Kubernetes cluster. Choose one of the following:
 
 Create a cluster:
 ```bash
-kind create cluster --name argocd-dev
+ctlptl create cluster kind --registry=ctlptl-registry
 ```
 
 #### Option B: k3d (Lightweight Kubernetes)
@@ -137,7 +147,7 @@ kind create cluster --name argocd-dev
 
 Create a cluster:
 ```bash
-k3d cluster create argocd-dev
+ctlptl create cluster k3d --registry=ctlptl-registry
 ```
 
 #### Option C: Minikube
@@ -146,7 +156,7 @@ k3d cluster create argocd-dev
 
 Start Minikube:
 ```bash
-minikube start --profile argocd-dev
+ctlptl create cluster minikube --registry=ctlptl-registry
 ```
 
 #### Option D: Docker Desktop
